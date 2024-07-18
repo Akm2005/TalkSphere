@@ -7,11 +7,14 @@ const Home = () => {
     return (
     <View style={styles.container}>
       <View>
-      <TouchableOpacity onPress={()=>navigation.navigate('Login')}>
+      <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Login')}>
         <Text>Login</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=>navigation.navigate('Register')}>
+      <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Register')}>
         <Text>Register</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Date')}>
+        <Text>Date</Text>
       </TouchableOpacity>
       </View>
     </View>
@@ -20,8 +23,19 @@ const Home = () => {
 const styles = StyleSheet.create({
   container:{
     display:'flex',
+    flex:1,
     justifyContent:'center',
     alignItems:'center',
+    backgroundColor:'gray',
+    // minHeight:800
+  },
+  button:{
+    width:300,
+    backgroundColor:'#f57df1',
+    justifyContent:'center',
+    alignItems:'center',
+    marginBottom:10,
+    height:50,
   }
 })
 export default Home

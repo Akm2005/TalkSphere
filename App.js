@@ -6,13 +6,15 @@ const Stack = createNativeStackNavigator();
 import Home from './src/Home';
 import Login from './src/Login';
 import Register from './src/Register';
+import Date from './src/Date';
 const App = () => {
   return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='Home'>
-          <Stack.Screen name="Home" component={Home} options={{headerShown:true}}/>
-          <Stack.Screen name="Login" component={Login} options={{headerShown:true}}/>
-          <Stack.Screen name="Register" component={Register} options={{headerShown:true}}/>
+        <Stack.Navigator initialRouteName='Login'>
+          <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
+          <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
+          <Stack.Screen name="Register" component={Register} options={{headerShown:false}}/>
+          <Stack.Screen name="Date" component={Date} options={{headerShown:true}}/>
         </Stack.Navigator>
       </NavigationContainer>
   )
