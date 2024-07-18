@@ -1,10 +1,19 @@
-import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Dimensions, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Login = () => {
   const navigation = useNavigation();
-
+  const [email,setEmail] = useState();
+  const [password,setPassword] = useState();
+  const handlelogin = ()=>{
+      if(email&&password){
+        console.log(email,password);
+        navigation.navigate('Home');
+      }else{
+        Alert.alert('Warning','Enter Both Email And Password');
+      }
+  }
   return (
     <View style={styles.container}>
       <View style={styles.loginContainer}>
@@ -13,19 +22,20 @@ const Login = () => {
           style={styles.input}
           placeholder='Email'
           placeholderTextColor='#888'
+          value={email}
+          onChangeText={(text)=>{setEmail(text)}}
         />
         <TextInput
           style={styles.input}
           placeholder='Password'
           secureTextEntry={true}
+          value={password}
+          onChangeText={(text)=>{setPassword(text)}}
           placeholderTextColor='#888'
         />
         <TouchableOpacity
           style={styles.loginButton}
-          onPress={() => {
-            // Handle login functionality here
-            console.log('Login pressed');
-          }}
+          onPress={handlelogin}
         >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
